@@ -1,0 +1,21 @@
+<div>
+    <h1><a href="/">Adventuring Cities</a></h1>
+</div>
+
+<br>
+{% block content %}
+  {% for post in posts %}
+
+      <h1>
+        <a href= "{% url 'post_detail' pk=post.pk %}">
+            {{ post.title }}
+        </a>
+      </h1>
+      <div>
+            {{ post.published_date }}
+      </div>
+      <p>{{ post.text|linebreaksbr }}</p>
+
+    </div>
+  {% endfor %}
+{% endblock %}
