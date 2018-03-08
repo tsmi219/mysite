@@ -4,18 +4,19 @@
 
 <br>
 {% block content %}
-  {% for post in posts %}
+   {% for post in posts %} <!--here, posts is the model we pull from -->
 
       <h1>
         <a href= "{% url 'post_detail' pk=post.pk %}">
             {{ post.title }}
         </a>
       </h1>
-      <div>
-            {{ post.published_date }}
-      </div>
-      <p>{{ post.text|linebreaksbr }}</p>
 
+    <div>
+        {{ post.published_date }}
+    </div>
+    <div>
+      <p>{{ post.text|linebreaksbr }}</p>
     </div>
   {% endfor %}
 {% endblock %}

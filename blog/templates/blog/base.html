@@ -1,16 +1,21 @@
 {% load staticfiles %}
 <html>
-    <head>
-        <title>My blog</title>
+    <head class="no-js" lang="en">
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My City</title>
+        <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
+
     <body>
-        <div>
-           <h1><a href="/">My Blog</a></h1>
-           {% if user.is_authenticated %}
-           <div><a href="{% url 'post_new' %}" >Add post</a></div>
-           {% endif %}
-        </div>
+
+    <div>
+       {% if user.is_authenticated %}
+       <div>
+         <a href="{% url 'post_new' %}" >Add post</a></div>
+         {% endif %}
+    </div>
 
         <div>
           {% block content %} <!--authenticate user -->

@@ -13,7 +13,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
-# create way for a user to make their own post with logi as well
+# create way for a user to make their own post with logic as well
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)

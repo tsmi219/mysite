@@ -1,10 +1,11 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base.html' %} <!--we will use things from base,
+                                  but add some more-->
 
 {% block content %}
     <div class="post">
         {% if post.published_date %}
-        <h1>{{ post.title }}</h1>
-        <div class="date">
+        <div><h1>{{ post.title }}</h1></div>
+        <div>
             {{ post.published_date }}
         </div>
         <br></br>
