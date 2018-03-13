@@ -13,18 +13,9 @@
     <div class="top-bar-left">
       <h3><a href="/">Tromme</a></h3>
     </div>
-
-    <div class="top-bar-left">
-      {% if user.is_authenticated %}
-        <div class="right">
-          <a href="{% url 'post_new' %}" >
-            <i class="fi-plus"></i>
-            Add post
-          </a>
-        </div>
-      {% endif %}
-    </div>
   </div>
+
+
 </header>
 
   <div class="row">
@@ -36,5 +27,15 @@
     </div>
   </div>
 {% endblock base_body %}
+<div class="top-bar-left">
+  {% if user.is_authenticated %}
+    <div class="right">
+      <a href="{% url 'post_new' %}" >
+        <i class="fi-plus"></i>
+        Add post
+      </a>
+    </div>
+  {% endif %}
+</div>
 
 </html>
