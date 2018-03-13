@@ -1,25 +1,40 @@
-{% load staticfiles %}
+{% extends 'foundation/base.html' %}
+{% block title %}My Blog{% endblock title %}
+{% block css %}
+  {% load static %}
 <html>
-    <head class="no-js" lang="en">
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My City</title>
-        <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
+  <link href="{% static 'css/blog.css' %}" rel="stylesheet"/>
+  <link href="{% static 'foundation/css/foundation-icons.css' %}" rel="stylesheet"/>
+{% endblock css %}
 
-    <body>
-
-    <div>
-       {% if user.is_authenticated %}
-       <div>
-         <a href="{% url 'post_new' %}" >Add post</a></div>
-         {% endif %}
+{% block base_body %}
+<header>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <h3><a href="/">My Blog</a></h3>
     </div>
 
-        <div>
-          {% block content %} <!--authenticate user -->
-          {% endblock %}
+    <div class="top-bar-right">
+      {% if user.is_authenticated %}
+        <div class="right">
+          <a href="{% url 'post_new' %}" >
+            <i class="fi-plus"></i>
+            Add post
+          </a>
         </div>
-    </body>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+  <div class="row">
+    <div class="columns large-12">
+      <div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
+{% endblock base_body %}
+
 </html>
