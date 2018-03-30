@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post #"look inside models directory for Post"
 from .forms import PostForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
 
 def post_list(request):
     posts = Post.objects.order_by('published_date')
@@ -14,6 +16,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 # create way for a user to make their own post with logic as well
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
